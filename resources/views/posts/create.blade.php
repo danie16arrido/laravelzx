@@ -4,7 +4,7 @@
 <div class="col-sm-8 blog-main">
     
     <h1>Create a post</h1>
-    <form method="post" action="/post">
+    <form method="post" action="/posts">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="title">Title:</label>
@@ -18,5 +18,8 @@
         </div>
         <button type="submit" class="btn btn-primary">Publish</button>
     </form>
+
+
+   @include ('layouts.errors')
 </div>
 @endsection
