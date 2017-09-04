@@ -11,11 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    $tasks = [
-        'Write cover letter',
-        'Send email with cover letter and CV',
-        'Prepare for interview'
-    ];
-    return view('welcome', compact('tasks'));
+Route::get('/tasks', function () {
+    // $tasks = DB::table('tasks')->get();
+    $tasks = App\Task::all();
+    return view('tasks.index', compact('tasks'));
 });
+
+Route::get('/tasks/{task}', function ($id) {
+
+    // $task = DB::table('tasks')->find($id);
+    $task = App\Task::find($id);
+    return view('tasks.show', compact('task'));
+});
+
+ 
